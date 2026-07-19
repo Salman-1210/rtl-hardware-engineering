@@ -21,35 +21,36 @@ A structured collection of hands-on digital design projects developed as part of
 ```
 rtl-hardware-engineering/
 |
-|-- traffic_light/                  # Task 1: Traffic Light Controller (Moore FSM)
-|   |-- README.md
-|   |-- traffic_light.sv
-|   |-- traffic_light_tb.sv
-|   |-- traffic_fsm_waveform.png
-|
-|-- vending_machine/                # Task 2: Vending Machine Controller (Moore FSM)
-|   |-- README.md
-|   |-- vending_machine.sv
-|   |-- vending_machine_tb.sv
-|   |-- vending_fsm_waveform.png
-|
-|-- fifo_8bit/                      # Task 3: 8-bit FIFO Buffer (Depth = 8)
-|   |-- README.md
-|   |-- fifo_8bit.sv
-|   |-- fifo_8bit_tb.sv
-|   |-- fifo_8bit_waveform.png
-|
-|-- apb_slave_ram/                  # Task 4: APB Slave RAM (AMBA Protocol)
+|-- apb_slave_ram/                  # Task : APB Slave RAM (AMBA Protocol)
 |   |-- README.md
 |   |-- apb_slave_ram.sv
 |   |-- apb_slave_ram_tb.sv
 |   |-- apb_slave_ram_waveform.png
 |
-|-- sequence_detector/              # Task 5: Sequence Detector (FSM)
+|-- fifo_8bit/                      # Task : 8-bit FIFO Buffer (Depth = 8)
+|   |-- README.md
+|   |-- fifo_8bit.sv
+|   |-- fifo_8bit_tb.sv
+|   |-- fifo_8bit_waveform.png
+|
+|-- sequence_detector/              # Task : Sequence Detector (FSM)
 |   |-- README.md
 |   |-- seq_detector.sv
 |   |-- seq_detector_tb.sv
 |   |-- seq_detector_waveform.png
+|
+|-- traffic_light/                  # Task : Traffic Light Controller (Moore FSM)
+|   |-- README.md
+|   |-- traffic_light.sv
+|   |-- traffic_light_tb.sv
+|   |-- traffic_fsm_waveform.png
+|
+|
+|-- vending_machine/                # Task : Vending Machine Controller (Moore FSM)
+|   |-- README.md
+|   |-- vending_machine.sv
+|   |-- vending_machine_tb.sv
+|   |-- vending_fsm_waveform.png
 |
 |-- .gitignore
 |-- README.md                       # This file
