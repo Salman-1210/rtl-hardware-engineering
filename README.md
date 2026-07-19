@@ -1,7 +1,7 @@
 # Task 1: 1101 Overlapping Sequence Detector (Moore FSM)
 
-## 📌 Project Overview
-This project implements a synchronous **1101 Overlapping Sequence Detector** using SystemVerilog. The core implementation relies on a **Moore Finite State Machine (FSM)** architecture to continuously monitor a 1-bit serial input stream (`x`) and assert a high output (`z`) for exactly one clock cycle whenever the target sequence `1101` is recognized. 
+## 📌 Task Overview
+This Task implements a synchronous **1101 Overlapping Sequence Detector** using SystemVerilog. The core implementation relies on a **Moore Finite State Machine (FSM)** architecture to continuously monitor a 1-bit serial input stream (`x`) and assert a high output (`z`) for exactly one clock cycle whenever the target sequence `1101` is recognized. 
 
 Because it is configured for **overlapping detection**, the system retains matching historical sub-sequences. For instance, an input stream of `1101101` will trigger the detection flag twice, treating the terminal `1` of the first pattern as the initial `1` of the second pattern.
 
