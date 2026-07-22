@@ -3,7 +3,7 @@
 A fully synthesizable, beginner-friendly 2-Way Set Associative Cache implemented in SystemVerilog. Features tag-based address mapping with valid-bit verification, LRU (Least Recently Used) replacement policy, combinational hit detection with sequential state updates, and explicit pointer management without shortcuts.
 
 **Instructor:** Sir Khalil Rehman  
-**Course:** Digital Design / Computer Architecture Lab  
+**Course:** RTL LAB
 **Language:** SystemVerilog (IEEE 1800-2017)  
 **Simulator:** Icarus Verilog (iverilog + vvp) + GTKWave  
 
@@ -950,4 +950,4 @@ This implementation represents a foundational digital design exercise in cache m
 The design prioritizes correctness and clarity over optimization. The explicit valid-bit checking, straightforward LRU bit management, and SystemVerilog `for` loop reset provide a solid foundation for understanding more advanced cache variants such as multi-level caches with MESI coherency.
 
 **Instructor:** Sir Khalil Rehman  
-**Institution:** Digital Design / Computer Architecture Lab
+**Institution:** Sir Syed University of Engineering and Technology
