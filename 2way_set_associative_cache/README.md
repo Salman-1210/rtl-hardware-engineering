@@ -19,7 +19,6 @@
 7. [Simulation Output Analysis](#7-simulation-output-analysis)
 8. [GTKWave Waveform Analysis](#8-gtkwave-waveform-analysis)
 9. [How to Run](#9-how-to-run)
-10. [Complete Source Code](#10-complete-source-code)
 
 ---
 
