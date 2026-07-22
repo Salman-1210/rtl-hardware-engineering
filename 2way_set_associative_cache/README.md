@@ -112,7 +112,7 @@ cache_2way.v
 └── State Update (Sequential)
 ```
 
-### 🔌 Port Interface
+###  Port Interface
 
 ```verilog
 module cache_2way(
@@ -126,7 +126,7 @@ module cache_2way(
 );
 ```
 
-### 🗄️ Memory Storage Declaration
+###  Memory Storage Declaration
 
 ```verilog
 // Valid bit: Tells if cache line contains valid data
