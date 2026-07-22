@@ -3,7 +3,7 @@
 A fully synthesizable, beginner-friendly 2-Way Set Associative Cache implemented in SystemVerilog. Features tag-based address mapping with valid-bit verification, LRU (Least Recently Used) replacement policy, combinational hit detection with sequential state updates, and explicit pointer management without shortcuts.
 
 **Instructor:** Sir Khalil Rehman  
-**Course:** RTL LAB  
+**Course:** Industrial Protocol & RTL  
 **Language:** SystemVerilog (IEEE 1800-2017)  
 **Simulator:** Icarus Verilog (iverilog + vvp) + GTKWave  
 
