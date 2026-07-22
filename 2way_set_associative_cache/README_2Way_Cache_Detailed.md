@@ -1,4 +1,4 @@
-# 🧠 2-Way Set Associative Cache — Verilog Implementation
+#  2-Way Set Associative Cache — Verilog Implementation
 
 > **Course:** Digital Design / Computer Architecture Lab  
 > **Module:** Cache Memory Design  
@@ -8,7 +8,7 @@
 
 ---
 
-## 📚 Table of Contents
+##  Table of Contents
 
 1. [Project Overview](#1-project-overview)
 2. [Cache Architecture Theory](#2-cache-architecture-theory)
@@ -25,14 +25,14 @@
 
 ## 1. Project Overview
 
-### 🎯 Objective
+###  Objective
 Design and simulate a **2-Way Set Associative Cache** in Verilog that supports:
 - **Read operations** with hit/miss detection
 - **Write operations** (write-hit and write-miss with replacement)
 - **LRU (Least Recently Used)** replacement policy
 - Full reset capability
 
-### 📊 Specifications
+###  Specifications
 | Parameter | Value |
 |-----------|-------|
 | Cache Type | 2-Way Set Associative |
@@ -102,7 +102,7 @@ Design and simulate a **2-Way Set Associative Cache** in Verilog that supports:
 
 ## 3. Module: `cache_2way.v`
 
-### 📁 File Structure
+###  File Structure
 ```
 cache_2way.v
 ├── Port Declarations
@@ -149,7 +149,7 @@ reg lru [0:3];             // [set] → 0=Way0 is LRU, 1=Way1 is LRU
 - `data[0:3][0:1]` → Each cache line stores 8-bit data
 - `lru[0:3]` → Only 1 bit needed per set for 2-way (0 or 1)
 
-### 🔍 Address Breakdown (Combinational)
+###  Address Breakdown (Combinational)
 
 ```verilog
 wire [1:0] index;      // Selects the set
@@ -169,7 +169,7 @@ assign addr_tag = address[3:2];  // Upper 2 bits → Tag comparison
 
 > **Key Insight:** Addresses 0, 4, 8 all map to **Set 0** but have **different tags**!
 
-### ✅ Hit Detection Logic (Combinational)
+###  Hit Detection Logic (Combinational)
 
 ```verilog
 wire way0_hit;
@@ -186,7 +186,7 @@ assign way1_hit = valid[index][1] && (tag[index][1] == addr_tag);
 - Without valid check, a tag match on an uninitialized line would falsely report a hit
 - After reset, all valid bits are 0 → no false hits
 
-### 📤 Output Assignment (Combinational)
+###  Output Assignment (Combinational)
 
 ```verilog
 always @(*) begin
@@ -210,7 +210,7 @@ end
 - No clock needed for read → fast access
 - Real caches use this for hit detection and data output
 
-### 🔄 Sequential State Update (Clocked)
+###  Sequential State Update (Clocked)
 
 ```verilog
 always @(posedge clk or posedge reset) begin
@@ -259,7 +259,7 @@ always @(posedge clk or posedge reset) begin
 end
 ```
 
-### 🧠 LRU Logic Deep Dive
+###  LRU Logic Deep Dive
 
 ```
 LRU Bit Interpretation:
@@ -285,7 +285,7 @@ State Transitions:
 
 ## 4. Testbench: `tb_cache.v`
 
-### 📁 File Structure
+###  File Structure
 ```
 tb_cache.v
 ├── Signal Declarations
@@ -296,13 +296,13 @@ tb_cache.v
 └── Test Sequence (8 Tests)
 ```
 
-### ⏱️ Clock Generation
+###  Clock Generation
 
 ```verilog
 always #5 clk = ~clk;  // 10ns period = 100MHz
 ```
 
-### 📊 Test Sequence Overview
+###  Test Sequence Overview
 
 | Test | Operation | Address | Data | Expected Result |
 |------|-----------|---------|------|-----------------|
@@ -315,7 +315,7 @@ always #5 clk = ~clk;  // 10ns period = 100MHz
 | 7 | Read | `0100` (Set0, Tag01) | — | Hit → `BB` |
 | 8 | Read | `1000` (Set0, Tag10) | — | Hit → `CC` |
 
-### 🎯 Why These Tests?
+###  Why These Tests?
 
 ```
 Set 0 State Evolution:
@@ -437,7 +437,7 @@ SIMULATION COMPLETE!
 tb_cache.v:89: $finish called at 100000 (1ps)
 ```
 
-### 🔍 Line-by-Line Analysis
+###  Line-by-Line Analysis
 
 | Time | Event | Explanation |
 |------|-------|-------------|
@@ -499,14 +499,14 @@ hit:       0       0       0       1       1       0       1       0       1    
 - **25ns**: `AA` (hit, Way0 has AA)
 - **40ns**: `00` (miss, Tag01 not in cache yet)
 - **45ns**: `BB` (hit, Way1 now has BB)
-- **70ns**: `00` (MISS! Tag00 was evicted from Way0) ✅ **Key verification**
+- **70ns**: `00` (MISS! Tag00 was evicted from Way0)  **Key verification**
 
 #### `hit` (Output)
 - **0ns**: 0 (reset, no valid data)
 - **20ns**: 0 (first write miss)
 - **25ns**: 1 (write hit — combinational read sees written data)
 - **40ns**: 0 (write miss — new tag)
-- **70ns**: 0 (READ MISS — eviction confirmed!) ✅
+- **70ns**: 0 (READ MISS — eviction confirmed!) 
 
 #### `write_enable`
 - High during write operations (Tests 1, 3, 5)
@@ -809,22 +809,22 @@ endmodule
 
 ---
 
-## ✅ Verification Summary
+##  Verification Summary
 
 | Test | Description | Result |
 |------|-------------|--------|
-| Write Miss (Empty Cache) | AA @ 0000 | ✅ Way0 filled |
-| Read Hit | 0000 | ✅ Returns AA |
-| Write Miss (Same Set, Other Way) | BB @ 0100 | ✅ Way1 filled |
-| Read Hit | 0100 | ✅ Returns BB |
-| Write Miss (Set Full, Eviction) | CC @ 1000 | ✅ Way0 evicted, CC placed |
-| Read Miss (Evicted Data) | 0000 | ✅ Correctly misses |
-| Read Hit (Surviving Data) | 0100 | ✅ Returns BB |
-| Read Hit (New Data) | 1000 | ✅ Returns CC |
+| Write Miss (Empty Cache) | AA @ 0000 |  Way0 filled |
+| Read Hit | 0000 |  Returns AA |
+| Write Miss (Same Set, Other Way) | BB @ 0100 |  Way1 filled |
+| Read Hit | 0100 |  Returns BB |
+| Write Miss (Set Full, Eviction) | CC @ 1000 |  Way0 evicted, CC placed |
+| Read Miss (Evicted Data) | 0000 |  Correctly misses |
+| Read Hit (Surviving Data) | 0100 |  Returns BB |
+| Read Hit (New Data) | 1000 |  Returns CC |
 
 ---
 
-## 🎓 Key Learning Outcomes
+##  Key Learning Outcomes
 
 1. **Set Associative Mapping**: Addresses map to sets, tags differentiate blocks within a set
 2. **Valid Bit Importance**: Prevents false hits on uninitialized data
@@ -834,7 +834,7 @@ endmodule
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - This is an **educational implementation** focusing on clarity
 - Real-world caches include: dirty bits, write-back to main memory, byte enables, etc.
